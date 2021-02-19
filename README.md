@@ -11,7 +11,7 @@
 * [Setup](#setup)
 
 ## General info
-This is a Discord bot i created for the [Cartel Custonms][CCDiscord] discord server. 
+This is a Discord bot i created for the [Cartel Customs][CCDiscord] discord server. 
 I've been workingon this bot for months and spent 200+ hours.
 Im moving on so i wanted to share the entire source code so other people can learn from it. 
 I don't claim that the code is anywhere near perfect as this was a huge learning curve for me.

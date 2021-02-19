@@ -30,10 +30,11 @@ All bot tokens have been reset and all passwords changed for security purposes.
 Project is created with:
 * [<img align="left" alt="Eclipse Java Oxygen" width="22px" src="https://i.ibb.co/6sjcrPg/ecl.png" />][eclipse][Eclipse Java Oxygen 3.0][eclipse]
 * [<img align="left" alt="JDA" width="22px" src="https://i.ibb.co/Wv7MLP0/jar-2.png" />][jar][JDA-4.2.0][jar]
+* [MySQL Jar][MySQL]
 * At least 5 IQ lol
 	
 ## Setup
-To run this project, make sur eto have a java compiler + newest JDA jar
+To run this project, make sur eto have a java compiler + newest JDA, MySQL jar
 
 You can find the links under [Technologies](#technologies)
 
@@ -45,3 +46,4 @@ You can find the links under [Technologies](#technologies)
 [youtube]: https://youtube.com/spuckwaffel
 [eclipse]: https://www.eclipse.org/downloads/packages/release/oxygen/3
 [jar]: https://ci.dv8tion.net/job/JDA/228/artifact/build/libs/
+[MySQL]: https://dev.mysql.com/downloads/connector/j/

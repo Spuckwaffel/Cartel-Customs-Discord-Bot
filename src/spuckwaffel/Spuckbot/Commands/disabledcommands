@@ -1,0 +1,218 @@
+if(args[0].equalsIgnoreCase(Main.prefix + "fillitup")) {
+				if (event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
+					event.getChannel().sendMessage("yo i hope this will work lol.").queue();
+					
+					event.getGuild().getMembers().forEach(member -> {
+						
+						
+						
+						String timejoined = member.getTimeJoined().toString();
+						String timejoined1 = timejoined.substring(0, 10);
+						String timecreated = member.getTimeCreated().toString();
+						String timecreated1 = timecreated.substring(0, 10);
+						PreparedStatement ps;
+						try {
+							ps = conn.prepareStatement("SELECT userids FROM userinformations WHERE userids= " + member.getId());
+							ResultSet rs = ps.executeQuery();
+							if (!rs.next()) {
+									int dailybonus = 0;
+									int diamonds = 0;
+									int coins = 1000;
+									int usernum = 0;
+									int tickets = 0;
+									int messages = 0;
+									int overalltickets = 0;
+									String sql = "insert into userinformations"
+											+" (userids, usernumber, tickets, overalltickets, messages, datejoin, accountcreated, coins, diamonds, dailybonus)"
+											+" values ('" + member.getId() + "', '" + usernum + "', '"  + tickets + "', '" + overalltickets + "', '"+ messages + "', '"
+											+ timejoined1 + "', '" + timecreated1 + "', '" + coins + "', '" + diamonds+ "', '" + dailybonus+ "')";
+									try {
+										stmt.executeUpdate(sql);
+										System.out.println("adding user");
+										event.getChannel().sendMessage("added!").queue();	
+									} catch (SQLException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}									
+								}
+							
+							
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+
+
+						
+						
+					});
+					event.getChannel().sendMessage("lol.").queue();
+				}				
+			}
+			
+			
+			if(args[0].equalsIgnoreCase(Main.prefix + "fillitup1")) {
+				if (event.getMember().hasPermission(Permission.ADMINISTRATOR)) {
+					event.getChannel().sendMessage("yo i hope this will work lol.").queue();
+					
+					event.getGuild().getMembers().forEach(member -> {
+						try {
+							PreparedStatement statement = conn.prepareStatement("SELECT `userids` FROM `userinformations` WHERE userids = ? ");
+							statement.setString(1, member.getId());
+							ResultSet rs = statement.executeQuery();
+
+							if (rs.next()) {
+								System.out.println("adding user");
+							} else {
+								System.out.println("added already");
+							}							
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+					});
+				}
+			}
+			
+			if(args[0].equalsIgnoreCase("al")) {
+			String issuerid = event.getAuthor().getId();
+			if (event.getMember().hasPermission(Permission.BAN_MEMBERS)) {
+				if (args.length == 2) {
+					if (!Main.usersids.contains(args[1])){
+						Main.usersids = Main.usersids + args[1] + "-1,";
+						event.getChannel().sendMessage("user added  " + args[1] + "-1,").queue();
+						event.getGuild().getTextChannelById("743438841293045800").sendMessage("<@" + issuerid + "> added" + args[1] + "-1,").queue();
+						FileWriter writer;
+						try {
+							writer = new FileWriter("C:\\Users\\roman\\spuckbot\\SpuckBot\\src\\spuckwaffel\\Spuckbot\\users.txt");
+							writer.write(Main.usersids);
+							writer.close();
+							event.getChannel().sendMessage("writing done!").queue();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+					else {
+						event.getChannel().sendMessage("seems like this user is already registered").queue();						
+					}
+				}
+				else {
+					event.getChannel().sendMessage("use !useradd ID <0-2>").queue();
+				}
+			}			
+		}
+		
+
+		
+		if(args[0].equalsIgnoreCase(Main.prefix +"updatee")) {
+			Main.jda.getPresence().setActivity(Activity.watching("discord.gg/cartelcustoms \n @" + Main.membercount +" Members \n twitter.com/Cartel_Customs \n /help"));
+			event.getChannel().sendMessage("did it").queue();
+		}
+		
+		
+		
+
+		
+		if(args[0].equalsIgnoreCase(Main.prefix + "l")) {
+			List<Message> messages = event.getChannel().getHistory().retrievePast(1).complete();
+			event.getChannel().deleteMessages(messages).queue();	
+			event.getChannel().sendMessage(Main.prefix + "wait").queue();
+			EmbedBuilder link = new EmbedBuilder();			
+			link.setTitle("You forgot something!");
+			link.setColor(0xff3923);
+			link.setDescription("Please upload a video with proof to https://streamable.com/ and send us the link");
+			event.getChannel().sendMessage(link.build()).queue();			
+		}
+		
+	###############################################
+	
+	
+				if(args.length == 2) {
+					
+					if(args[0].equalsIgnoreCase(Main.prefix + "clanmine")) {
+						
+						if(args[1].equalsIgnoreCase("items")) {
+							String id = event.getAuthor().getId();
+							int currentclan = 0;
+							ResultSet rsinfos = stmt.executeQuery("select * from userinformations where userids =" + id);
+							while (rsinfos.next()) {
+								currentclan = rsinfos.getInt("clan");
+								
+							}
+							if(currentclan == 0) {
+								EmbedBuilder eb = new EmbedBuilder();
+								eb.setDescription("**You need to be in a clan to do this!**");
+								eb.setColor(0xff0000);
+								event.getChannel().sendMessage(eb.build()).queue();
+							} else {
+								int totalitems= 0;
+								int minelvl = 0;
+								int stone = 0;
+								int coal = 0;
+								int iron = 0;
+								int gold = 0;
+								int diamond = 0;
+								int emerald = 0;
+								ResultSet claninfos = stmt.executeQuery("select * from clans where clanid =" + currentclan);
+								while (claninfos.next()) {
+									minelvl = claninfos.getInt("clanminelvl");
+									stone = claninfos.getInt("stone");
+									coal = claninfos.getInt("coal");
+									iron = claninfos.getInt("iron");
+									gold = claninfos.getInt("gold");
+									diamond = claninfos.getInt("diamond");
+									emerald = claninfos.getInt("emerald");
+									
+									
+								}
+								if(minelvl == 0) {
+									EmbedBuilder eb = new EmbedBuilder();
+									eb.setDescription("**Your clan doesnt have a mine! You can buy a mine at the clan store**");
+									eb.setColor(0xff0000);
+									event.getChannel().sendMessage(eb.build()).queue();
+								}
+								
+								else {
+									totalitems = stone + coal + iron + gold + diamond + emerald;
+								EmbedBuilder eb = new EmbedBuilder();
+								eb.setDescription("**Your items:** \n"
+										+ "Sold items: \n **<:stone:753996163270705193>" + stone + "\n"
+										+ "<:coal:753994248843427860>" + coal + "\n"
+										+ "<:iron_ingot:753994248659009547>" + iron + "\n"
+										+ "<:gold_ingot:753994248847622284>" + gold + "\n"
+										+ "<:diamond:753994248583512095>"+ diamond + "\n"
+										+ "<:emerald:753994248822718465>"+ emerald + "** \n"
+												+ totalitems + " Items in total");
+								eb.setColor(0x3dfc03);
+								event.getChannel().sendMessage(eb.build()).queue();
+								}
+							}
+						 }
+					 }
+				}	
+			
+###################################
+
+package spuckwaffel.Spuckbot.Events;
+
+import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+
+public class Valorykek extends ListenerAdapter {
+	public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
+		String[] args = event.getMessage().getContentRaw().split("\\s+");
+		event.getGuild().getMemberById("418035079521107968").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("524606860725059585").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("431082576082501632").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("379069582876475394").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("475306962297552916").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("340542256215752705").modifyNickname("kek").queue();
+		event.getGuild().getMemberById("455409246025023488").modifyNickname("kek").queue();
+	}
+	
+	
+}
+
+
+####################################
+			

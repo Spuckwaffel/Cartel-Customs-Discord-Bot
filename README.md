@@ -11,9 +11,9 @@
 * [Setup](#setup)
 
 ## General info
-This is a Discord bot i created for the [Cartel Customs][CCDiscord] discord server. 
+This is a Discord bot I created for the [Cartel Customs][CCDiscord] discord server. 
 I've been working on this bot for months and spent 200+ hours.
-Im moving on so i wanted to share the entire source code so other people can learn from it. 
+I'm moving on so I wanted to share the entire source code so other people can learn from it. 
 I don't claim that the code is anywhere near perfect as this was a huge learning curve for me.
 All licenses apply.  Keep in mind the code might not be the best as this was my first good Discord Bot 
 and the first project ever i made in Java.  

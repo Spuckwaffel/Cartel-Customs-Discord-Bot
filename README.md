@@ -18,6 +18,7 @@ I don't claim that the code is anywhere near perfect as this was a huge learning
 All licenses apply.  Keep in mind the code might not be the best as this was my first good Discord Bot 
 and the first project ever i made in Java.  
 All bot tokens have been reset and all passwords changed for security purposes.
+This bot uses/used a MySQL database, if you need the old database with all its entires, feel free to ask me on Discord
 
 ## Socials
 

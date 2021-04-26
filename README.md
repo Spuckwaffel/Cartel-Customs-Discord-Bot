@@ -31,7 +31,7 @@ This bot uses/used a MySQL database, if you need the old database with all its e
 Project is created with:
 * [<img align="left" alt="Eclipse Java Oxygen" width="22px" src="https://i.ibb.co/6sjcrPg/ecl.png" />][eclipse][Eclipse Java Oxygen 3.0][eclipse]
 * [<img align="left" alt="JDA" width="22px" src="https://i.ibb.co/Wv7MLP0/jar-2.png" />][jar][JDA-4.2.0][jar]
-* [MySQL Jar][MySQL]
+* [<img align="left" alt="JDA" width="22px" src="https://i.ibb.co/Wv7MLP0/jar-2.png" />][jar][MySQL Jar][MySQL]
 * At least 5 IQ lol
 	
 ## Setup

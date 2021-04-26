@@ -35,7 +35,7 @@ Project is created with:
 * At least 5 IQ lol
 	
 ## Setup
-To run this project, make sur eto have a java compiler + newest JDA, MySQL jar
+To run this project, make sure to have a java compiler + newest JDA, MySQL jar
 
 You can find the links under [Technologies](#technologies)
 
